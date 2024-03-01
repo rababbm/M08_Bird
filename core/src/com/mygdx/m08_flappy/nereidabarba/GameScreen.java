@@ -55,7 +55,7 @@ public class GameScreen implements Screen {
         hearts = new Array<Heart>();
         spawnHeart();
 
-        numHearts = 1;
+        numHearts = 0;
 
         // Inicializa el corazón con la textura correspondiente
         Heart heart = new Heart();
@@ -225,7 +225,7 @@ public class GameScreen implements Screen {
         Iterator<Pipe> iterr = obstacles.iterator();
         while (iterr.hasNext()) {
             Pipe pipe = iterr.next();
-            pipe.act(delta); // Llamar al método act() de Pipe antes de verificar la colisión
+
             if (pipe.getBounds().overlaps(player.getBounds())) {
                 if (numHearts > 0 && !player.isImmune()) {
                     player.setImmune(true);
